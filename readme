@@ -1,0 +1,56 @@
+# Intrusion Detection System (IDS) Web Application
+
+This is a web application that allows users to upload test files, process them using machine learning algorithms, and view the predictions as well as download the result files. The project leverages Django for web handling, file storage, and integrates machine learning using libraries like pandas, scikit-learn, XGBoost, and more.
+
+## Key Features
+- File upload and handling via Django's `FileSystemStorage`.
+- One-hot encoding of categorical features such as `protocol_type`, `service`, and `flag`.
+- Data scaling using `RobustScaler` for feature normalization.
+- Use of a voting classifier ensemble (combination of Decision Tree, Random Forest, and Naive Bayes) to make predictions.
+- Visual representation of predicted labels using Seaborn bar plots.
+- Ability to download the prediction results as a CSV file.
+
+## Views
+
+### `home(request)`
+Renders the home page of the application.
+
+### `predict(request)`
+This view handles:
+1. File upload from the user.
+2. Preprocessing of data (one-hot encoding and scaling).
+3. Application of a Voting Classifier ensemble to make predictions.
+4. Visualization of the results (bar plot of predicted labels).
+5. Saving of the prediction results to a CSV file.
+6. Rendering of the results page showing the plot and download link for the CSV file.
+
+### `download(request)`
+This view allows users to download the predicted labels in CSV format.
+
+## ML Model Pipeline
+1. Data preprocessing with one-hot encoding of categorical features.
+2. Data scaling with `RobustScaler`.
+3. Model training with a Voting Classifier that combines:
+   - Decision Tree
+   - Random Forest
+   - Naive Bayes
+4. Prediction of results and generation of visualized output.
+5. CSV download of the results.
+
+## Libraries and Tools Used
+- Django for web framework and file handling
+- Pandas for data manipulation
+- Scikit-learn for machine learning pipeline (including model training, prediction, and preprocessing)
+- XGBoost for boosted tree models
+- Seaborn and Matplotlib for visualizations
+- Joblib for model saving/loading
+- NumPy for numerical operations
+
+## How to Use
+1. Visit the home page of the application.
+2. Upload a test file in CSV format using the provided form.
+3. Click submit, and the application will process the file using the machine learning model.
+4. View the results, download the CSV file, and check the plot of predicted labels.
+
+## File Download
+- Users can download the prediction CSV files using the download endpoint.

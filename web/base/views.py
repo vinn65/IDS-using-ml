@@ -40,7 +40,7 @@ def predict(request):
             "dst_host_srv_diff_host_rate", "dst_host_serror_rate", "dst_host_srv_serror_rate",
             "dst_host_rerror_rate", "dst_host_srv_rerror_rate", "attack", "level"]
 
-        train_df = pd.read_csv("C:\\Users\\Sir Vin\\OneDrive\\Desktop\\collins\\KDDTrain+.csv", names=col_names)
+        train_df = pd.read_csv("C:\\Users\\Sir Vin\\OneDrive\\Desktop\\IDS\\web\\media\\KDDTest+.csv", names=col_names)
         test_df = pd.read_csv(test_file, names=col_names)
 
         test_df = test_df.drop('attack', axis=1)
